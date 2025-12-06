@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lulu Mutuli - Web Design Freelancer</title>
+
+  <link rel="icon" type="image/x-icon" href="../portfolio/img/favicon-four.png">
+  
+  
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Knewave&family=Staatliches&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  
+  
+  <style>
+
+    .material-symbols-outlined {
+
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+    }
+
+    
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    
+
+    body {
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      background: linear-gradient(-20deg, #faebe7, #cbd41f, #f5afe6, #f9f9f7);
+
+      background-size: 400% 400%;
+
+      animation: gradient 15s ease infinite;
+
+      min-height: 100vh;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+    
+
+    @keyframes gradient {
+
+      0% { background-position: 0% 20%; }
+
+      50% { background-position: 100% 80%; }
+
+      100% { background-position: 0% 50%; }
+
+    }
+
+    
+
+    /* Scroll animations */
+
+    .scroll-animate {
+
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+    }
+
+    
+
+    .scroll-animate.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+    
+
+    .scroll-animate-left {
+
+      opacity: 0;
+
+      transform: translateX(-30px);
+
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+    }
+
+    
+
+    .scroll-animate-left.visible {
+
+      opacity: 1;
+
+      transform: translateX(0);
+
+    }
+
+    
+
+    .scroll-animate-right {
+
+      opacity: 0;
+
+      transform: translateX(30px);
+
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+    }
+
+    
+
+    .scroll-animate-right.visible {
+
+      opacity: 1;
+
+      transform: translateX(0);
+
+    }
+
+    
+
+    /* Mobile menu styles */
+
+    .mobile-menu {
+
+      display: none;
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100vh;
+
+      background: rgba(255, 255, 255, 0.98);
+
+      backdrop-filter: blur(10px);
+
+      z-index: 50;
+
+      padding: 2rem;
+
+      flex-direction: column;
+
+      gap: 2rem;
+
+      animation: slideIn 0.3s ease;
+
+    }
+
+    
+
+    .mobile-menu.active {
+
+      display: flex;
+
+    }
+
+    
+
+    @keyframes slideIn {
+
+      from {
+
+        opacity: 0;
+
+        transform: translateX(-100%);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+      }
+
+    }
+
+    
+
+    .hamburger {
+
+      display: none;
+
+      flex-direction: column;
+
+      gap: 4px;
+
+      cursor: pointer;
+
+      z-index: 51;
+
+    }
+
+    
+
+    .hamburger span {
+
+      width: 25px;
+
+      height: 3px;
+
+      background: #000;
+
+      transition: all 0.3s ease;
+
+    }
+
+    
+
+    .hamburger.active span:nth-child(1) {
+
+      transform: rotate(45deg) translate(5px, 5px);
+
+    }
+
+    
+
+    .hamburger.active span:nth-child(2) {
+
+      opacity: 0;
+
+    }
+
+    
+
+    .hamburger.active span:nth-child(3) {
+
+      transform: rotate(-45deg) translate(7px, -6px);
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+      .hamburger {
+
+        display: flex;
+
+      }
+
+    }
+
+    
+
+    /* Button hover effect */
+
+    .btn-hover {
+
+      transition: color 0.3s ease, transform 0.2s ease;
+
+    }
+
+    
+
+    .btn-hover:hover {
+
+      color: rgba(239, 85, 247, 0.861) !important;
+
+      transform: translateY(-2px);
+
+    }
+
+    
+
+    /* Carousel improvements */
+
+    .carousel-container {
+
+      position: relative;
+
+      max-width: 90%;
+
+      margin: 0 auto;
+
+    }
+
+    
+
+    .carousel-wrapper {
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: #1a1a1a;
+
+      border-radius: 16px;
+
+      width: 100%;
+
+    }
+
+    
+
+    .carousel-track {
+
+      display: flex;
+
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      width: 100%;
+
+    }
+
+    
+
+    .carousel-slide {
+
+      min-width: 100%;
+
+      width: 100%;
+
+      flex-shrink: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    
+
+    /* Carousel navigation buttons */
+
+    .carousel-nav-btn {
+
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      background: transparent;
+
+      border: none;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      z-index: 10;
+
+      width: 48px;
+
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition: all 0.3s ease;
+
+    }
+
+    
+
+    .carousel-nav-btn:hover {
+
+      color: rgba(239, 85, 247, 0.861);
+
+      transform: translateY(-50%) scale(1.1);
+
+    }
+
+    
+
+    .carousel-btn-prev {
+
+      left: -60px;
+
+    }
+
+    
+
+    .carousel-btn-next {
+
+      right: -60px;
+
+    }
+
+    
+
+    @media (max-width: 1200px) {
+
+      .carousel-btn-prev {
+
+        left: 10px;
+
+      }
+
+      .carousel-btn-next {
+
+        right: 10px;
+
+      }
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+      .carousel-nav-btn {
+
+        display: none;
+
+      }
+
+    }
+
+    
+
+    /* Carousel indicators */
+
+    .carousel-indicator {
+
+      width: 6px;
+
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.3);
+
+      border: 1px solid rgba(255, 255, 255, 0.5);
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+    }
+
+    
+
+    .carousel-indicator.active {
+
+      background: #fff;
+
+    }
+
+    
+
+    /* Before/After container responsive */
+
+    .before-after-container {
+
+      display: flex;
+
+      gap: 1rem;
+
+      background: #fff;
+
+      padding: 1rem;
+
+      border-radius: 16px;
+
+      height: 100%;
+
+      min-height: 500px;
+
+    }
+
+    
+
+    .before-image, .after-image {
+
+      position: relative;
+
+      border-radius: 16px;
+
+      background-size: contain;
+
+      background-position: center;
+
+      background-repeat: no-repeat;
+
+      overflow: hidden;
+
+    }
+
+    
+
+    .before-image {
+
+      flex: 1;
+
+    }
+
+    
+
+    .after-image {
+
+      flex: 1.5;
+
+    }
+
+    
+
+    .image-label {
+
+      position: absolute;
+
+      bottom: 1rem;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      font-weight: bold;
+
+      color: #fff;
+
+      background: rgba(0, 0, 0, 0.5);
+
+      padding: 0.5rem 1rem;
+
+      border-radius: 8px;
+
+      font-size: 1rem;
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+      .before-after-container {
+
+        flex-direction: column;
+
+        min-height: 600px;
+
+      }
+
+      
+
+      .before-image, .after-image {
+
+        flex: 1;
+
+        min-height: 200px;
+
+      }
+
+      
+
+      .image-label {
+
+        font-size: 0.875rem;
+
+        padding: 0.375rem 0.75rem;
+
+      }
+
+    }
+
+    
+
+    /* Key improvements section */
+
+    .improvements-container {
+
+      background: rgba(255, 255, 255, 0.05);
+
+      backdrop-filter: blur(5px);
+
+      border-radius: 16px;
+
+      padding: 1.5rem;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      height: 100%;
+
+    }
+
+    
+
+    .improvements-title {
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      color: #fff;
+
+      font-size: 1.75rem;
+
+      font-weight: 700;
+
+      text-align: left;
+
+      margin-bottom: 0.25rem;
+
+    }
+
+    
+
+    .improvements-subtitle {
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      color: #fff;
+
+      font-size: 1.25rem;
+
+      font-weight: 700;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    
+
+    .improvements-project-subtitle {
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      color: #fff;
+
+      font-size: 1.35rem;
+
+      font-weight: 400;
+
+      opacity: 0.8;
+      margin-top: -10px;
+
+
+    }
+
+    
+
+    .improvement-item {
+
+      display: flex;
+
+      align-items: start;
+
+      gap: 0.5rem;
+
+      color: #fff;
+
+    }
+
+    
+
+    .improvement-item i {
+
+      margin-top: 0.25rem;
+
+      flex-shrink: 0;
+
+    }
+
+    
+
+    .improvement-text {
+
+      font-family: 'Darker Grotesque', sans-serif;
+
+      font-size: 1.125rem;
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+      .improvements-title {
+
+        font-size: 1.5rem;
+
+      }
+
+      
+
+      .improvements-subtitle {
+
+        font-size: 1.125rem;
+
+      }
+
+      
+
+      .improvement-text {
+
+        font-size: 1rem;
+
+      }
+
+    }
+
+    
+
+    /* Smooth scroll */
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    
+
+    /* Glass morphism enhancement */
+
+    .glass {
+
+      background: rgba(255, 255, 255, 0.1);
+
+      border-radius: 16px;
+
+      backdrop-filter: blur(10px);
+
+      -webkit-backdrop-filter: blur(10px);
+
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    }
+
+    
+
+    /* Responsive adjustments */
+
+    @media (max-width: 1024px) {
+
+      .hero-image {
+
+        width: 40vh !important;
+
+        right: 5% !important;
+
+      }
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+      .hero-image {
+
+        width: 30vh !important;
+
+        right: 5% !important;
+
+        bottom: 10% !important;
+
+      }
+
+    }
+
+    
+
+    /* Touch-friendly tap targets */
+
+    button, a {
+
+      min-height: 10px;
+
+      min-width: 10px;
+
+    }
+
+  </style>
+  
+  
+
+  <script>
+
+    tailwind.config = {
+
+      darkMode: "class",
+
+      theme: {
+
+        extend: {
+
+          colors: {
+
+            "primary": "#2b2bee",
+
+            "background-light": "#f6f6f8",
+
+            "background-dark": "#101022",
+
+          },
+
+          fontFamily: {
+
+            "display": ["Darker Grotesque", "sans-serif"],
+
+            "grotesque": ["Darker Grotesque", "sans-serif"],
+
+          },
+
+        },
+
+      },
+
+    }
+
+  </script>
+
+</head>
+
+<body class="font-grotesque">
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<div class="layout-container flex h-full grow flex-col">
+
+    <div class="flex flex-1 justify-center" style="margin: 0 5%; padding: 3rem 0;">
+
+<div class="layout-content-container flex flex-col max-w-[1400px] flex-1 w-full">
+
+        
+
+        <!-- Header -->
+
+        <header class="flex items-center justify-between px-4 sm:px-8 py-4 relative z-50">
+
+          <div class="flex items-center gap-3">
+
+            <img src="../portfolio/img/favicon-four.png" alt="Lulu Mutuli Logo" class="w-6 h-6">
+
+            <h2 class="text-lg sm:text-xl font-bold text-black">Lulu Mutuli</h2>
+
+</div>
+
+          
+
+          <!-- Desktop Navigation -->
+
+          <nav class="hidden md:flex items-center gap-6 lg:gap-8 relative z-10">
+
+            <a class="text-sm font-medium text-black uppercase tracking-wider btn-hover cursor-pointer" href="#services">Services</a>
+
+            <a class="text-sm font-medium text-black uppercase tracking-wider btn-hover cursor-pointer" href="#work">Work</a>
+
+            <a class="text-sm font-medium text-black uppercase tracking-wider btn-hover cursor-pointer" href="#packages">Packages</a>
+
+            <a class="text-sm font-medium text-black uppercase tracking-wider btn-hover cursor-pointer" href="mailto:luluhmutuli@gmail.com">Contact</a>
+
+          </nav>
+
+          
+
+          <!-- Mobile Hamburger -->
+
+          <div class="hamburger md:hidden" onclick="toggleMenu()">
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+</div>
+
+</header>
+
+        
+
+        <!-- Mobile Menu -->
+
+        <div class="mobile-menu" id="mobileMenu">
+
+          <a class="text-2xl font-medium text-black uppercase tracking-wider" href="#services" onclick="toggleMenu()">Services</a>
+
+          <a class="text-2xl font-medium text-black uppercase tracking-wider" href="#work" onclick="toggleMenu()">Work</a>
+
+          <a class="text-2xl font-medium text-black uppercase tracking-wider" href="#packages" onclick="toggleMenu()">Packages</a>
+
+          <a class="text-2xl font-medium text-black uppercase tracking-wider" href="mailto:luluhmutuli@gmail.com" onclick="toggleMenu()">Contact</a>
+
+        </div>
+
+        
+
+        <!-- Hero Section -->
+
+        <div class="relative my-8 sm:my-12 lg:my-16 scroll-animate" style="background: #1a1a1a; padding: 2rem; border-radius: 20px; min-height: 650px; display: flex; align-items: center;">
+
+          <div class="flex flex-col gap-6 w-full max-w-full lg:max-w-[60%] relative z-10 px-2 sm:px-4">
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
+
+              Clear message. Smart design. More customers.
+
+                  </h1>
+
+            <h2 class="text-lg sm:text-xl lg:text-2xl font-normal text-white opacity-90">
+
+              Your website is often the first impression and I make sure it's the one that wins people over. I craft streamlined, strategic websites with messaging that cuts through the noise and design that guides users to take the next step. More clarity, more confidence, and more conversions.
+
+                  </h2>
+
+            <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover self-start px-4 py-2">
+
+              See the Results →
+
+</a>
+
+</div>
+
+          <img src="../portfolio/img/profile-image.png" alt="Lulu Mutuli" class="hero-image absolute bottom-0 right-10 w-[45vh] h-auto z-1 object-contain">
+
+</div>
+
+        
+
+        <!-- Services Section -->
+
+        <div id="services" class="flex flex-col gap-8 px-4 py-10 scroll-animate">
+
+<div class="flex flex-col gap-4">
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight text-center">What I Actually Do For You</h2>
+
+            <p class="text-xl sm:text-2xl lg:text-3xl font-normal text-black max-w-3xl text-center mx-auto">
+
+              Beyond pretty designs I build strategic systems that attract the right customers and grow your revenue.
+
+            </p>
+
+</div>
+
+          
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <!-- UI/UX Design -->
+
+            <div class="flex flex-col gap-4 p-6 scroll-animate-left" style="background: transparent;">
+
+              <span class="material-symbols-outlined text-4xl text-black">design_services</span>
+
+              <h3 class="text-xl font-bold text-black">Strategic Design</h3>
+
+              <p class="text-base sm:text-lg font-normal text-black opacity-90">
+
+                Every element is placed with purpose. I design websites that guide visitors toward taking action — whether that's booking a call, making a purchase, or signing up.
+
+              </p>
+
+  </div>
+
+            
+
+  <!-- Web Development -->
+
+            <div class="flex flex-col gap-4 p-6 scroll-animate" style="background: transparent;">
+
+              <span class="material-symbols-outlined text-4xl text-black">code</span>
+
+              <h3 class="text-xl font-bold text-black">High Performance Development</h3>
+
+              <p class="text-base sm:text-lg font-normal text-black opacity-90">
+
+                Lightning-fast websites built in Framer or custom code. Mobile-optimized, accessible, and designed to rank on Google from day one.
+
+              </p>
+
+  </div>
+
+            
+
+  <!-- SEO & Growth -->
+
+            <div class="flex flex-col gap-4 p-6 scroll-animate-right" style="background: transparent;">
+
+              <span class="material-symbols-outlined text-4xl text-black">trending_up</span>
+
+              <h3 class="text-xl font-bold text-black">Search & Growth Strategy</h3>
+
+              <p class="text-base sm:text-lg font-normal text-black opacity-90">
+
+                Your ideal customers are searching right now. I position your website to be found, build trust instantly, and convert traffic into paying clients.
+
+              </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+        
+
+<!-- How I Work Section -->
+
+        <div class="mt-8 px-6 sm:px-10 py-10 sm:py-16 glass scroll-animate">
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-4 pl-4 sm:pl-6">My Process: From Strategy to Launch</h2>
+
+          <p class="text-xl sm:text-2xl lg:text-3xl font-normal text-black opacity-90 max-w-3xl mb-12 pl-4 sm:pl-6">
+
+            No guesswork. No endless revisions. Just a proven system that delivers websites that perform from day one.
+
+          </p>
+
+          
+
+          <div class="flex flex-col gap-8 max-w-4xl mx-auto">
+    
+    <!-- Step 1 -->
+
+            <div class="flex gap-4 items-start scroll-animate-left">
+
+              <div class="flex-shrink-0 flex items-center justify-center font-bold w-12 h-12 rounded-full glass text-black">01</div>
+
+      <div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-black mb-2">Strategy First: Understand What Actually Works</h3>
+
+                <p class="text-base sm:text-lg text-black opacity-90">
+
+                  We dig into your business goals, target audience, and competitors. I identify exactly what your website needs to say to convert browsers into buyers and create a battle tested brief that eliminates guesswork.
+
+                </p>
+
+      </div>
+
+    </div>
+
+            
+
+    <!-- Step 2 -->
+
+            <div class="flex gap-4 items-start scroll-animate-right">
+
+              <div class="flex-shrink-0 flex items-center justify-center font-bold w-12 h-12 rounded-full glass text-black">02</div>
+
+      <div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-black mb-2">Messaging That Sells: Clarity Over Cleverness</h3>
+
+                <p class="text-base sm:text-lg text-black opacity-90">
+
+                  I transform your existing content into clear, persuasive messaging that speaks directly to customer pain points. SEO optimized from the start, so you're not just found you're chosen.
+
+                </p>
+
+      </div>
+
+    </div>
+
+            
+
+    <!-- Step 3 -->
+
+            <div class="flex gap-4 items-start scroll-animate-left">
+
+              <div class="flex-shrink-0 flex items-center justify-center font-bold w-12 h-12 rounded-full glass text-black">03</div>
+
+      <div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-black mb-2">Design With Purpose: Every Pixel Earns Its Place</h3>
+
+                <p class="text-base sm:text-lg text-black opacity-90">
+
+                  Using Figma, I create wireframes and high fidelity designs that prioritize conversions. Beautiful, yes but more importantly, designed to guide visitors exactly where you want them to go.
+
+                </p>
+
+      </div>
+
+    </div>
+
+            
+
+    <!-- Step 4 -->
+
+            <div class="flex gap-4 items-start scroll-animate-right">
+
+              <div class="flex-shrink-0 flex items-center justify-center font-bold w-12 h-12 rounded-full glass text-black">04</div>
+
+      <div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-black mb-2">Build For Performance: Fast, Flawless, Future Proof</h3>
+
+                <p class="text-base sm:text-lg text-black opacity-90">
+
+                  I develop your site in Framer or custom code blazing fast, mobile responsive, and SEO ready. Every interaction is smooth, every page loads instantly, and you can manage content yourself with optional CMS setup.
+
+                </p>
+
+      </div>
+
+    </div>
+
+            
+
+    <!-- Step 5 -->
+
+            <div class="flex gap-4 items-start scroll-animate-left">
+
+              <div class="flex-shrink-0 flex items-center justify-center font-bold w-12 h-12 rounded-full glass text-black">05</div>
+
+      <div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-black mb-2">Launch With Confidence: You're In Control</h3>
+
+                <p class="text-base sm:text-lg text-black opacity-90">
+
+                  After thorough testing, I connect your domain, launch your site, and train you on managing updates. You walk away with a website that works and the knowledge to keep it working.
+
+                </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+        
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Featured Work Carousel -->
+
+<div id="work" class="py-10 sm:py-16 scroll-animate mt-16 sm:mt-20" style="background-color: #000;">
+
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white text-center mb-8 px-4">Featured Work</h2>
+
+  
+
+  <div class="carousel-container">
+
+    <!-- Navigation Buttons -->
+
+    <button class="carousel-nav-btn carousel-btn-prev" onclick="prevSlide()" aria-label="Previous">
+
+      <i class="bi bi-chevron-left text-4xl"></i>
+
+    </button>
+    
+    
+
+    <button class="carousel-nav-btn carousel-btn-next" onclick="nextSlide()" aria-label="Next">
+
+      <i class="bi bi-chevron-right text-4xl"></i>
+
+    </button>
+
+    
+
+    <!-- Carousel -->
+
+    <div class="carousel-wrapper">
+
+      <div class="carousel-track" id="carouselTrack">
+
+        
+
+        <!-- Slide 1: Darling Hair -->
+
+        <div class="carousel-slide">
+
+          <div class="p-4 sm:p-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+
+              <!-- Before & After -->
+
+              <div class="before-after-container">
+
+                <div class="before-image" style="background-image: url('img/DarlingHair-Before.png');">
+
+                  <span class="image-label">Before</span>
+
+                </div>
+
+                <div class="after-image" style="background-image: url('img/DarlingHair-After.png');">
+
+                  <span class="image-label">After</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <!-- Key Improvements -->
+
+              <div class="improvements-container">
+
+                <h3 class="improvements-title">Darling Hair Kenya</h3>
+
+                <p class="improvements-project-subtitle">African hair extensions company based throughout the African continent.</p>
+
+                <h4 class="improvements-subtitle">Key Improvements</h4>
+
+                <ul class="flex flex-col gap-3">
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">More consistent imagery</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Redesigned top section to highlight movement and flow</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Maintaining consistent colour scheme</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Updated branding colours and cleaner iconography</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Modern and fashionable typography</span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        
+
+        <!-- Slide 2: Braiding Nairobi -->
+
+        <div class="carousel-slide">
+
+          <div class="p-4 sm:p-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+
+              <div class="before-after-container">
+
+                <div class="before-image" style="background-image: url('img/BraidingNairobi-Website-Before.png');">
+
+                  <span class="image-label">Before</span>
+
+                </div>
+
+                <div class="after-image" style="background-image: url('img/BraidingNairobi-After (3).png');">
+
+                  <span class="image-label">After</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <div class="improvements-container">
+
+                <h3 class="improvements-title">Braiding Nairobi</h3>
+
+                <p class="improvements-project-subtitle">A website for a hair braiding service in Nairobi, Kenya.</p>
+
+                <h4 class="improvements-subtitle">Key Improvements</h4>
+
+                <ul class="flex flex-col gap-3">
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Clearer Calls to Action</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Branding updated to be consistent across the website </span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">FAQ's added to boost SEO</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Highlighting of Braiders story as main service offering</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Highlighting press & accomplishments to boost credibility</span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        
+
+        <!-- Slide 3: Power Africa Solar -->
+
+        <div class="carousel-slide">
+
+          <div class="p-4 sm:p-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+
+              <div class="before-after-container">
+
+                <div class="before-image" style="background-image: url('img/PowerAfricaSolar-Before.png');">
+
+                  <span class="image-label">Before</span>
+
+                </div>
+
+                <div class="after-image" style="background-image: url('img/PowerAfricaSolar-After.png');">
+
+                  <span class="image-label">After</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <div class="improvements-container">
+
+                <h3 class="improvements-title">Power Africa Solar</h3>
+
+                <p class="improvements-project-subtitle">Solar Power company providing solar solutions to businesses and homes in Africa and beyond.</p>
+
+                <h4 class="improvements-subtitle">Key Improvements</h4>
+
+                <ul class="flex flex-col gap-3">
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Consolidated user flow for greater conversions</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Updated brand colours</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Improved call-to-actions</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Enhanced interactivity</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Modern UI components built on Figma to Framer </span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        
+
+        <!-- Slide 4: Redland Roses -->
+
+        <div class="carousel-slide">
+
+          <div class="p-4 sm:p-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+
+              <div class="before-after-container">
+
+                <div class="before-image after-image" style="background-image: url('img/Redlandroses.jpg');"></div>
+
+                </div>
+
+              
+
+              <div class="improvements-container">
+
+                <h3 class="improvements-title">Redland Roses</h3>
+
+                <p class="improvements-project-subtitle">Roses website for a Rose farm in Ruiru, Kenya.</p>
+
+                <h4 class="improvements-subtitle">Key Improvements</h4>
+
+                <ul class="flex flex-col gap-3">
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Fashionable design to match the brand.</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Clearer messaging to engage customers</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Added catalogue page for users to browse, leading to better conversion.</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Better mobile optimization</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">SEO improvements</span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        
+
+        <!-- Slide 5: Air Bridge -->
+
+        <div class="carousel-slide">
+
+          <div class="p-4 sm:p-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+
+              <div class="before-after-container">
+
+                <div class="before-image after-image" style="background-image: url('img/Airbridge.png');"></div>
+
+                </div>
+
+              
+
+              <div class="improvements-container">
+
+                <h3 class="improvements-title">AirBridge</h3>
+
+                <p class="improvements-project-subtitle mb-0 pb-0">A platform for managing and tracking workflows with federated learning technology.</p>
+
+                <h4 class="improvements-subtitle">Key Improvements</h4>
+
+                <ul class="flex flex-col gap-3">
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Clearer UX to keep track of workflows</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Cleaner UI with Information hierarchy to help distill complex information</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">Status indicators to help track workflow progress</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">User roles to determine different permissions.</span>
+
+                  </li>
+
+                  <li class="improvement-item">
+
+                    <i class="bi bi-check-circle text-lg"></i>
+
+                    <span class="improvement-text">SEO improvements</span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        
+
+                </div>
+
+    </div>
+    
+    
+
+    <!-- Indicators -->
+
+    <div class="flex gap-3 justify-center mt-6" id="carouselIndicators">
+
+      <button class="carousel-indicator active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+
+      <button class="carousel-indicator" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+
+      <button class="carousel-indicator" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+
+      <button class="carousel-indicator" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+
+      <button class="carousel-indicator" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Pricing Section -->
+
+<div id="packages" class="py-10 sm:py-16 px-4 scroll-animate">
+
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black text-center mb-4">Packages</h2>
+
+  <p class="text-xl sm:text-2xl lg:text-3xl text-black text-center max-w-2xl mx-auto mb-12 opacity-90">
+
+    Choose the package that matches your ambition. Every option delivers a website that works as hard as you do.
+
+  </p>
+
+  
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+
+    
+
+  <!-- Starter Package -->
+
+    <div class="glass p-6 flex flex-col gap-4 scroll-animate-left" style="background: #000;">
+
+      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Starter</h3>
+
+      <p class="text-lg sm:text-xl text-white opacity-70">Launch Essentials</p>
+
+      <ul class="flex flex-col gap-3 flex-1">
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">1 Planning Session</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Basic Content Audit</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">SEO friendly messaging</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">1 to 2 Page Design (Figma)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Framer Build (1 to 2 pages)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Mobile Optimisation</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Domain Connection & Handover</span>
+
+      </li>
+
+    </ul>
+
+      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
+
+  </div>
+
+    
+
+    <!-- Standard Package (Featured) -->
+
+    <div class="glass p-6 flex flex-col gap-4 lg:scale-105 shadow-2xl scroll-animate" style="background: #000;">
+
+      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Standard</h3>
+
+      <p class="text-lg sm:text-xl text-white opacity-70">Growth Website</p>
+
+      <ul class="flex flex-col gap-3 flex-1">
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Full Project Brief</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Competitive Scan</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Content Audit + Messaging Framework</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">SEO Keyword Planning</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Sitemap + Wireframes</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Figma Design (up to 5 pages)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Framer Build (up to 5 pages)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">CMS Setup (optional)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">QA Testing & Launch Support</span>
+
+      </li>
+
+    </ul>
+
+      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
+
+  </div>
+
+    
+
+  <!-- Premium Package -->
+
+    <div class="glass p-6 flex flex-col gap-4 scroll-animate-right" style="background: #000;">
+
+      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Premium</h3>
+
+      <p class="text-lg sm:text-xl text-white opacity-70">Brand & Website System</p>
+
+      <ul class="flex flex-col gap-3 flex-1">
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">User/Customer Research</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Competitive & Positioning Analysis</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Conversion Strategy</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Full Content Rewrite</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">SEO Strategy + Search Prompts</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Extended Brand Assets</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Figma UI (8 to 10 pages)</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Framer Build + Animations</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">CMS + Analytics Setup</span>
+
+      </li>
+
+        <li class="flex items-start gap-2 text-white">
+
+          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+
+          <span class="text-base sm:text-lg text-white">Training + 1 Month Support</span>
+
+      </li>
+
+    </ul>
+
+      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
+
+    </div>
+
+    
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+  // Mobile Menu Toggle
+
+  function toggleMenu() {
+
+    const menu = document.getElementById('mobileMenu');
+
+    const hamburger = document.querySelector('.hamburger');
+
+    menu.classList.toggle('active');
+
+    hamburger.classList.toggle('active');
+
+  }
+
+  
+
+  // Carousel functionality
+
+  let currentSlide = 0;
+
+  const track = document.getElementById('carouselTrack');
+
+  const slides = document.querySelectorAll('.carousel-slide');
+
+  const indicators = document.querySelectorAll('.carousel-indicator');
+
+  const totalSlides = slides.length;
+
+  
+
+  function updateCarousel() {
+    
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    indicators.forEach((indicator, index) => {
+
+      if (index === currentSlide) {
+
+        indicator.classList.add('active');
+
+      } else {
+
+        indicator.classList.remove('active');
+
+      }
+
+    });
+
+  }
+
+  
+
+  function nextSlide() {
+
+    currentSlide = (currentSlide + 1) % totalSlides;
+
+    updateCarousel();
+
+  }
+
+  
+
+  function prevSlide() {
+
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+
+    updateCarousel();
+
+  }
+
+  
+
+  function goToSlide(index) {
+
+    currentSlide = index;
+
+    updateCarousel();
+
+  }
+
+  
+
+  // Touch swipe support for mobile
+
+  let touchStartX = 0;
+
+  let touchEndX = 0;
+
+  
+
+  const carouselWrapper = document.querySelector('.carousel-wrapper');
+
+  
+
+  carouselWrapper.addEventListener('touchstart', e => {
+
+    touchStartX = e.changedTouches[0].screenX;
+
+  }, { passive: true });
+
+  
+
+  carouselWrapper.addEventListener('touchend', e => {
+
+    touchEndX = e.changedTouches[0].screenX;
+
+    handleSwipe();
+
+  }, { passive: true });
+
+  
+
+  function handleSwipe() {
+
+    const swipeThreshold = 50;
+
+    if (touchEndX < touchStartX - swipeThreshold) {
+
+      nextSlide();
+
+    }
+
+    if (touchEndX > touchStartX + swipeThreshold) {
+
+      prevSlide();
+
+    }
+
+  }
+
+  
+
+  // Auto-play carousel (optional)
+
+  let autoplayInterval = setInterval(nextSlide, 5000);
+
+  
+
+  // Pause autoplay on hover
+
+  carouselWrapper.addEventListener('mouseenter', () => {
+
+    clearInterval(autoplayInterval);
+
+  });
+
+  
+
+  carouselWrapper.addEventListener('mouseleave', () => {
+
+    autoplayInterval = setInterval(nextSlide, 5000);
+
+  });
+
+  
+
+  // Scroll animations
+
+  const observerOptions = {
+
+    threshold: 0.1,
+
+    rootMargin: '0px 0px -50px 0px'
+
+  };
+
+  
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add('visible');
+
+      }
+
+    });
+
+  }, observerOptions);
+
+  
+
+  // Observe all animated elements
+
+  document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+
+    observer.observe(el);
+
+  });
+
+  
+
+  // Initialize
+
+  updateCarousel();
+
+</script>
+
+
+
+</body>
+
+</html>
