@@ -295,6 +295,12 @@
       margin: 0 auto;
 
     }
+    
+    @media (min-width: 1400px) {
+      .carousel-container {
+        max-width: 1200px;
+      }
+    }
 
     
 
@@ -811,6 +817,199 @@
 
       min-width: 10px;
 
+    }
+    
+    /* Packages Section Styles */
+    .package-card {
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .package-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .package-card:hover::before {
+      opacity: 1;
+    }
+    
+    .package-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .package-card.featured {
+      transform: scale(1.05);
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
+    }
+    
+    .package-card.featured::before {
+      opacity: 1;
+    }
+    
+    .package-header h3 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .package-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .package-price {
+      font-size: 0.875rem;
+      color: #8b5cf6;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+      margin: 1rem 0;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    
+    .feature-item i {
+      color: #8b5cf6;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+    
+    .feature-item span {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: white;
+    }
+    
+    .tech-options {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+    
+    .tech-options-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-options-list {
+      font-size: 1rem;
+      opacity: 0.8;
+      line-height: 1.6;
+      color: white;
+    }
+    
+    .cta-button {
+      display: block;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: #8b5cf6;
+      transform: translateY(-2px);
+    }
+    
+    .standalone-services {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card {
+      background: #000;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+    }
+    
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service-card:hover .service-title,
+    .service-card:hover .service-description {
+      color: #000;
+    }
+    
+    .service-icon {
+      font-size: 2rem;
+      color: #8b5cf6;
+      margin-bottom: 1rem;
+    }
+    
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .service-description {
+      font-size: 0.9375rem;
+      opacity: 0.8;
+      line-height: 1.6;
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .package-card.featured {
+        transform: scale(1);
+      }
     }
 
   </style>
@@ -1697,281 +1896,441 @@
 
 <div id="packages" class="py-10 sm:py-16 px-4 scroll-animate">
 
-  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black text-center mb-4">Packages</h2>
+  <div class="max-w-7xl mx-auto">
 
-  <p class="text-xl sm:text-2xl lg:text-3xl text-black text-center max-w-2xl mx-auto mb-12 opacity-90">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black text-center mb-4">Website Packages</h2>
 
-    Choose the package that matches your ambition. Every option delivers a website that works as hard as you do.
+    <p class="text-xl sm:text-2xl lg:text-3xl text-black text-center max-w-2xl mx-auto mb-12 opacity-90">
 
-  </p>
+      End-to-end solutions for your digital presence
 
-  
+    </p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
 
-    
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
   <!-- Starter Package -->
 
-    <div class="glass p-6 flex flex-col gap-4 scroll-animate-left" style="background: #000;">
+      <div class="package-card scroll-animate-left">
 
-      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Starter</h3>
+        <div class="package-header">
 
-      <p class="text-lg sm:text-xl text-white opacity-70">Launch Essentials</p>
+          <h3>Starter</h3>
 
-      <ul class="flex flex-col gap-3 flex-1">
+          <p class="package-subtitle">Launch Essentials</p>
 
-        <li class="flex items-start gap-2 text-white">
+          <p class="package-price">Perfect for MVPs & Landing Pages</p>
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+        </div>
 
-          <span class="text-base sm:text-lg text-white">1 Planning Session</span>
 
-      </li>
 
-        <li class="flex items-start gap-2 text-white">
+        <ul class="features-list">
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+          <li class="feature-item">
 
-          <span class="text-base sm:text-lg text-white">Basic Content Audit</span>
+            <i class="bi bi-check-circle-fill"></i>
 
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">SEO friendly messaging</span>
+            <span>1 Planning Session</span>
 
       </li>
 
-        <li class="flex items-start gap-2 text-white">
+          <li class="feature-item">
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+            <i class="bi bi-check-circle-fill"></i>
 
-          <span class="text-base sm:text-lg text-white">1 to 2 Page Design (Figma)</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Framer Build (1 to 2 pages)</span>
+            <span>Basic Content Audit</span>
 
       </li>
 
-        <li class="flex items-start gap-2 text-white">
+          <li class="feature-item">
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+            <i class="bi bi-check-circle-fill"></i>
 
-          <span class="text-base sm:text-lg text-white">Mobile Optimisation</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Domain Connection & Handover</span>
+            <span>SEO-Friendly Messaging</span>
 
       </li>
 
-    </ul>
+          <li class="feature-item">
 
-      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
+            <i class="bi bi-check-circle-fill"></i>
 
-  </div>
-
-    
-
-    <!-- Standard Package (Featured) -->
-
-    <div class="glass p-6 flex flex-col gap-4 lg:scale-105 shadow-2xl scroll-animate" style="background: #000;">
-
-      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Standard</h3>
-
-      <p class="text-lg sm:text-xl text-white opacity-70">Growth Website</p>
-
-      <ul class="flex flex-col gap-3 flex-1">
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Full Project Brief</span>
+            <span>1-2 Page Design (Figma)</span>
 
       </li>
 
-        <li class="flex items-start gap-2 text-white">
+          <li class="feature-item">
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+            <i class="bi bi-check-circle-fill"></i>
 
-          <span class="text-base sm:text-lg text-white">Competitive Scan</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Content Audit + Messaging Framework</span>
+            <span>Mobile-Responsive Build</span>
 
       </li>
 
-        <li class="flex items-start gap-2 text-white">
+          <li class="feature-item">
 
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
+            <i class="bi bi-check-circle-fill"></i>
 
-          <span class="text-base sm:text-lg text-white">SEO Keyword Planning</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Sitemap + Wireframes</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Figma Design (up to 5 pages)</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Framer Build (up to 5 pages)</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">CMS Setup (optional)</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">QA Testing & Launch Support</span>
+            <span>Domain Connection & Handover</span>
 
       </li>
 
     </ul>
 
-      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
 
-  </div>
 
-    
+        <div class="tech-options">
 
-  <!-- Premium Package -->
+          <div class="tech-options-title">Build Options</div>
 
-    <div class="glass p-6 flex flex-col gap-4 scroll-animate-right" style="background: #000;">
-
-      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Premium</h3>
-
-      <p class="text-lg sm:text-xl text-white opacity-70">Brand & Website System</p>
-
-      <ul class="flex flex-col gap-3 flex-1">
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">User/Customer Research</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Competitive & Positioning Analysis</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Conversion Strategy</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Full Content Rewrite</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">SEO Strategy + Search Prompts</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Extended Brand Assets</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Figma UI (8 to 10 pages)</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Framer Build + Animations</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">CMS + Analytics Setup</span>
-
-      </li>
-
-        <li class="flex items-start gap-2 text-white">
-
-          <i class="bi bi-check-circle mt-1 flex-shrink-0 text-white"></i>
-
-          <span class="text-base sm:text-lg text-white">Training + 1 Month Support</span>
-
-      </li>
-
-    </ul>
-
-      <a href="mailto:luluhmutuli@gmail.com" class="text-sm font-medium text-white uppercase tracking-widest btn-hover text-center px-4 py-2 border border-white/20 rounded-lg">Book a Discovery Call</a>
+          <div class="tech-options-list">Framer or Next.js/Vercel</div>
 
     </div>
 
-    
+
+
+        <a href="https://calendly.com/luluhmutuli/30min" target="_blank" rel="noopener noreferrer" class="cta-button">Book a Discovery Call</a>
+
+  </div>
+
+
+
+      <!-- Standard Package (Featured) -->
+
+      <div class="package-card featured scroll-animate">
+
+        <div class="package-header">
+
+          <h3>Standard</h3>
+
+          <p class="package-subtitle">Growth Website</p>
+
+          <p class="package-price">Most Popular Choice</p>
+
+        </div>
+
+
+
+        <ul class="features-list">
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Full Project Brief & Strategy</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Competitive Analysis</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Content Audit + Messaging Framework</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>SEO Keyword Planning</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Sitemap + Wireframes</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Up to 5 Page Design (Figma)</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Full Development Build</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Micro-Interactions & Animations</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>CMS Setup (Optional)</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>QA Testing & Launch Support</span>
+
+          </li>
+
+    </ul>
+
+
+
+        <div class="tech-options">
+
+          <div class="tech-options-title">Build Options</div>
+
+          <div class="tech-options-list">Framer or Custom Next.js/Vercel with full code control</div>
+
+    </div>
+
+
+
+        <a href="https://calendly.com/luluhmutuli/30min" target="_blank" rel="noopener noreferrer" class="cta-button">Book a Discovery Call</a>
+
+  </div>
+
+
+
+  <!-- Premium Package -->
+
+      <div class="package-card scroll-animate-right">
+
+        <div class="package-header">
+
+          <h3>Premium</h3>
+
+          <p class="package-subtitle">Brand & Website System</p>
+
+          <p class="package-price">Complete Digital Transformation</p>
+
+        </div>
+
+
+
+        <ul class="features-list">
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>User/Customer Research</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Competitive & Positioning Analysis</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Conversion Strategy</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Full Content Rewrite</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>SEO Strategy + Search Intent Mapping</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Extended Brand Assets</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>8-10 Page Design System (Figma)</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Advanced Animations & Lottie Files</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Premium Development Build</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>CMS + Analytics Setup</span>
+
+      </li>
+
+          <li class="feature-item">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <span>Training + 1 Month Support</span>
+
+          </li>
+
+    </ul>
+
+
+
+        <div class="tech-options">
+
+          <div class="tech-options-title">Build Options</div>
+
+          <div class="tech-options-list">Framer or Custom Next.js/Vercel with advanced features & integrations</div>
+
+    </div>
+
+
+
+        <a href="https://calendly.com/luluhmutuli/30min" target="_blank" rel="noopener noreferrer" class="cta-button">Book a Discovery Call</a>
+
+  </div>
+
+</div>
+
+
+
+    <!-- Standalone Services -->
+
+    <div class="standalone-services">
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black text-center mb-4">Standalone Services</h2>
+
+      <p class="text-xl sm:text-2xl lg:text-3xl text-black text-center max-w-2xl mx-auto mb-12 opacity-90">
+
+        Individual services to complement your existing projects
+
+      </p>
+
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="service-card">
+
+          <i class="bi bi-palette service-icon"></i>
+
+          <h3 class="service-title">UI/UX Design Only</h3>
+
+          <p class="service-description">Complete Figma design systems, wireframes, and prototypes ready for development handoff.</p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <i class="bi bi-stars service-icon"></i>
+
+          <h3 class="service-title">Animation Design</h3>
+
+          <p class="service-description">Custom Lottie animations, micro-interactions, and motion design to bring your interface to life.</p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <i class="bi bi-code-slash service-icon"></i>
+
+          <h3 class="service-title">Development Only</h3>
+
+          <p class="service-description">Convert your designs into production-ready Framer or Next.js/Vercel websites with clean, maintainable code.</p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <i class="bi bi-arrow-repeat service-icon"></i>
+
+          <h3 class="service-title">Website Redesign</h3>
+
+          <p class="service-description">Refresh your existing website with modern design, improved UX, and optimized performance.</p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <i class="bi bi-graph-up-arrow service-icon"></i>
+
+          <h3 class="service-title">Conversion Optimization</h3>
+
+          <p class="service-description">Analyze and optimize your existing website for better user engagement and conversion rates.</p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+          <i class="bi bi-headset service-icon"></i>
+
+          <h3 class="service-title">Ongoing Support</h3>
+
+          <p class="service-description">Monthly retainer for updates, maintenance, and continuous improvements to your website.</p>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 
