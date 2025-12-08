@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Lulu Mutuli - Web Design Freelancer</title>
-
+  
   <link rel="icon" type="image/x-icon" href="img/favicon-four.png">
   
   
@@ -320,8 +320,6 @@
 
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-      width: 100%;
-
     }
 
     
@@ -358,7 +356,7 @@
 
       cursor: pointer;
 
-      z-index: 10;
+      z-index: 100;
 
       width: 48px;
 
@@ -371,6 +369,8 @@
       justify-content: center;
 
       transition: all 0.3s ease;
+
+      pointer-events: auto;
 
     }
 
@@ -424,7 +424,9 @@
 
       .carousel-nav-btn {
 
-        display: none;
+        width: 40px;
+
+        height: 40px;
 
       }
 
@@ -475,8 +477,6 @@
       padding: 1rem;
 
       border-radius: 16px;
-
-      height: 100%;
 
       min-height: 500px;
 
@@ -598,8 +598,31 @@
 
       gap: 1rem;
 
-      height: 100%;
+      min-height: 500px;
 
+      justify-content: space-between;
+
+    }
+    
+    .improvements-container > ul {
+      flex-grow: 1;
+    }
+    
+    .improvements-container > a:last-child,
+    .improvements-container > div.mt-6 {
+      margin-top: auto;
+    }
+    
+    @media (min-width: 1024px) {
+      .improvements-container {
+        height: 600px !important;
+        min-height: 600px !important;
+      }
+      
+      .before-after-container {
+        height: 600px !important;
+        min-height: 600px !important;
+      }
     }
 
     
@@ -908,11 +931,11 @@
 
         <!-- Hero Section -->
 
-        <div class="relative my-8 sm:my-12 lg:my-16 scroll-animate" style="background: #1a1a1a; padding: 2rem; border-radius: 20px; min-height: 650px; display: flex; align-items: center;">
+        <div class="relative my-8 sm:my-12 lg:my-16 scroll-animate" style="background: #1a1a1a; padding: 2rem; border-radius: 20px; min-height: 750px; display: flex; align-items: center;margin-right: 4%;margin-left: 4%;">
 
           <div class="flex flex-col gap-6 w-full max-w-full lg:max-w-[60%] relative z-10 px-2 sm:px-4">
 
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
+            <h1 class="text-5xl sm:text-4xl md:text-6xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
 
               Clear message. Smart design. More customers.
 
@@ -932,7 +955,7 @@
 
 </div>
 
-          <img src="img/profile-image.png" alt="Lulu Mutuli" class="hero-image absolute bottom-0 right-10 w-[45vh] h-auto z-1 object-contain">
+          <img src="img/profile-image.png" alt="Lulu Mutuli" class="hero-image absolute bottom-0 right-10 w-[45vh] h-auto z-1 object-contain hidden lg:block">
 
 </div>
 
@@ -1018,11 +1041,11 @@
 
 <!-- How I Work Section -->
 
-        <div class="mt-8 px-6 sm:px-10 py-10 sm:py-16 glass scroll-animate">
+        <div class="mt-8 px-6 sm:px-10 lg:px-4 xl:px-6 py-10 sm:py-16 glass scroll-animate" style="margin-left: 8%; margin-right: 8%;">
 
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-4 pl-4 sm:pl-6">My Process: From Strategy to Launch</h2>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-4" style="margin-left: 8%;">My Process: From Strategy to Launch</h2>
 
-          <p class="text-xl sm:text-2xl lg:text-3xl font-normal text-black opacity-90 max-w-3xl mb-12 pl-4 sm:pl-6">
+          <p class="text-xl sm:text-2xl lg:text-3xl font-normal text-black opacity-90 max-w-3xl" style="margin-left: 8%;margin-bottom: 8%;">
 
             No guesswork. No endless revisions. Just a proven system that delivers websites that perform from day one.
 
@@ -1030,7 +1053,7 @@
 
           
 
-          <div class="flex flex-col gap-8 max-w-4xl mx-auto">
+          <div class="flex flex-col gap-8 max-w-4xl mx-8 pl-0">
     
     <!-- Step 1 -->
 
@@ -1198,7 +1221,7 @@
 
           <div class="p-4 sm:p-8">
 
-            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6 items-stretch">
 
               <!-- Before & After -->
 
@@ -1274,6 +1297,11 @@
 
                 </ul>
 
+                <a href="https://www.figma.com/proto/6wX7hS1yQai8KqfmN67zBN/Darling-Hair?node-id=276-4&t=a3IPt5GHwCl5M3QG-1&scaling=scale-down&content-scaling=fixed&page-id=276%3A3" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full sm:w-auto text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                  <span>View Darling Hair Kenya</span>
+                  <span class="ml-4">→</span>
+                </a>
+
               </div>
 
             </div>
@@ -1290,7 +1318,7 @@
 
           <div class="p-4 sm:p-8">
 
-            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6 items-stretch">
 
               <div class="before-after-container">
 
@@ -1362,6 +1390,11 @@
 
                 </ul>
 
+                <a href="https://www.braidingnairobi.com/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full sm:w-auto text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                  <span>View Braiding Nairobi</span>
+                  <span class="ml-4">→</span>
+                </a>
+
               </div>
 
             </div>
@@ -1378,7 +1411,7 @@
 
           <div class="p-4 sm:p-8">
 
-            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6 items-stretch">
 
               <div class="before-after-container">
 
@@ -1400,7 +1433,7 @@
 
               <div class="improvements-container">
 
-                <h3 class="improvements-title">Power Africa Solar</h3>
+                <h3 class="improvements-title">Power Africa Solar (Ongoing)</h3>
 
                 <p class="improvements-project-subtitle">Solar Power company providing solar solutions to businesses and homes in Africa and beyond.</p>
 
@@ -1450,6 +1483,13 @@
 
                 </ul>
 
+                <div class="mt-6" style="height: 48px;"></div>
+
+                <!-- <a href="#" onclick="goToSlide(3); return false;" class="mt-6 inline-flex items-center justify-between w-full sm:w-auto text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                  <span>View Power Africa Solar</span>
+                  <span class="ml-4">→</span>
+                </a> -->
+
               </div>
 
             </div>
@@ -1466,7 +1506,7 @@
 
           <div class="p-4 sm:p-8">
 
-            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6 items-stretch">
 
               <div class="before-after-container">
 
@@ -1528,6 +1568,15 @@
 
                 </ul>
 
+                <div class="mt-6 flex flex-col sm:flex-row gap-4" style="min-height: 48px;">
+                  <a href="https://www.behance.net/gallery/206658379/Red-Lands-Roses" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between flex-1 text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                    <span>View Designs</span>
+                    <span class="ml-4">→</span>
+                  </a>
+                  <a href="https://redlandsroses.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between flex-1 text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                    <span>View Live Site</span>
+                    <span class="ml-4">→</span>
+                  </a>
               </div>
 
             </div>
@@ -1535,6 +1584,8 @@
           </div>
 
         </div>
+        
+                </div>
         
         
 
@@ -1544,13 +1595,13 @@
 
           <div class="p-4 sm:p-8">
 
-            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 lg:gap-6 items-stretch">
 
               <div class="before-after-container">
 
                 <div class="before-image after-image" style="background-image: url('img/Airbridge.png');"></div>
 
-                </div>
+              </div>
 
               
 
@@ -1596,15 +1647,13 @@
 
                   </li>
 
-                  <li class="improvement-item">
-
-                    <i class="bi bi-check-circle text-lg"></i>
-
-                    <span class="improvement-text">SEO improvements</span>
-
-                  </li>
 
                 </ul>
+
+                <a href="https://lulumuts.github.io/Lulumutuli/airbridge.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full sm:w-auto text-sm font-medium text-white uppercase tracking-widest btn-hover px-6 py-3 border border-white/30 rounded-2xl hover:bg-white/10 hover:border-[#f5afe6] transition-colors">
+                  <span>View Airbridge</span>
+                  <span class="ml-4">→</span>
+                </a>
 
               </div>
 
@@ -1950,8 +1999,6 @@
 
   // Carousel functionality
 
-  let currentSlide = 0;
-
   const track = document.getElementById('carouselTrack');
 
   const slides = document.querySelectorAll('.carousel-slide');
@@ -1960,15 +2007,73 @@
 
   const totalSlides = slides.length;
 
+  let currentSlide = 1; // Start at 1 because we'll clone slides
+
+  let isTransitioning = false;
+
+  const totalSlidesWithClones = totalSlides + 2;
+
   
 
-  function updateCarousel() {
+  // Clone first and last slides for infinite loop
+
+  const firstClone = slides[0].cloneNode(true);
+
+  const lastClone = slides[totalSlides - 1].cloneNode(true);
+
+  track.appendChild(firstClone);
+
+  track.insertBefore(lastClone, slides[0]);
+
+  
+
+  // Update track width to accommodate clones
+
+  track.style.width = `${totalSlidesWithClones * 100}%`;
+
+  
+
+  // Update slide widths to fit within the track
+
+  const allSlides = track.querySelectorAll('.carousel-slide');
+
+  allSlides.forEach(slide => {
+
+    slide.style.width = `${100 / totalSlidesWithClones}%`;
+
+    slide.style.minWidth = `${100 / totalSlidesWithClones}%`;
+
+  });
+
+  
+
+  // Set initial position to the real first slide (index 1)
+
+  track.style.transform = `translateX(-${(currentSlide * 100) / totalSlidesWithClones}%)`;
+
+  
+
+  function updateCarousel(skipTransition = false) {
     
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    if (skipTransition) {
+
+      track.style.transition = 'none';
+
+    } else {
+
+      track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+    }
+
+    track.style.transform = `translateX(-${(currentSlide * 100) / totalSlidesWithClones}%)`;
+
+    // Update indicators (map to real slide indices)
+
+    const realIndex = currentSlide === 0 ? totalSlides - 1 : (currentSlide === totalSlides + 1 ? 0 : currentSlide - 1);
 
     indicators.forEach((indicator, index) => {
 
-      if (index === currentSlide) {
+      if (index === realIndex) {
 
         indicator.classList.add('active');
 
@@ -1986,9 +2091,33 @@
 
   function nextSlide() {
 
-    currentSlide = (currentSlide + 1) % totalSlides;
+    currentSlide++;
 
     updateCarousel();
+
+    
+
+    // If we're at the cloned first slide, jump to real first slide
+
+    if (currentSlide === totalSlides + 1) {
+
+      setTimeout(() => {
+
+        track.style.transition = 'none';
+
+        currentSlide = 1;
+
+        track.style.transform = `translateX(-${(currentSlide * 100) / totalSlidesWithClones}%)`;
+
+        setTimeout(() => {
+
+          track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        }, 50);
+
+      }, 500);
+
+    }
 
   }
 
@@ -1996,9 +2125,33 @@
 
   function prevSlide() {
 
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    currentSlide--;
 
     updateCarousel();
+
+    
+
+    // If we're at the cloned last slide, jump to real last slide
+
+    if (currentSlide === 0) {
+
+      setTimeout(() => {
+
+        track.style.transition = 'none';
+
+        currentSlide = totalSlides;
+
+        track.style.transform = `translateX(-${(currentSlide * 100) / totalSlidesWithClones}%)`;
+
+        setTimeout(() => {
+
+          track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        }, 50);
+
+      }, 500);
+
+    }
 
   }
 
@@ -2006,9 +2159,19 @@
 
   function goToSlide(index) {
 
-    currentSlide = index;
+    if (isTransitioning) return;
+
+    isTransitioning = true;
+
+    currentSlide = index + 1; // +1 because of cloned slide at start
 
     updateCarousel();
+
+    setTimeout(() => {
+
+      isTransitioning = false;
+
+    }, 500);
 
   }
 
